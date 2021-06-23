@@ -28,15 +28,15 @@ $livros = $controller->index();
   </nav>
 
   <div class="container">
-    <div class="row">
+    <div class="row pt2">
 
       <?php if (!$livros) echo "<p class='card-panel red lighten-4'>Nenhum livro cadastrado</p>" ?>
 
       <?php foreach ($livros as $livro) : ?>
         <div class="col s7 m4 l4 xl3">
-          <div class="card hoverable card-serie">
+          <div class="card hoverable card-serie limit">
             <div class="card-image">
-              <img src="<?= $livro->capa ?>" class="activator" />
+              <img src="<?= $livro->capa ?>" class="activator bookImgLimitHeight" />
               <button class="btn-fav btn-floating halfway-fab waves-effect waves-light red" data-id="<?= $livro->id ?>">
                 <i class="material-icons"><?= ($livro->favorito) ? "favorite" : "favorite_border" ?></i>
               </button>

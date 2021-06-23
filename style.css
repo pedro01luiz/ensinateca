@@ -3,7 +3,7 @@ body{
 }
 
 .nav-extended{
-    background-image: url("imagens/capa.jpg");
+    background-image: url("http://www.ensinateca.local/imagens/capa.jpg");
     background-size: cover;
     background-blend-mode: soft-light;
 }
@@ -20,4 +20,21 @@ nav ul li.active, .tab a.active{
 .fadeOut{
     opacity: 0;
     transition: 1s;
+}
+
+/*  Essa classe limita o tamanho das imagens nos cards de livro 
+    E muda as definições se a imagen é "esticada" ou não no elemento.
+    - Mago
+*/
+.bookImgLimitHeight {
+    max-height: 350px;
+    min-height: 350px;
+    object-fit: cover;
+}
+
+/*  Essa classe adiciona um espaço entre a barra abaixo do cabeçalho e a lista de livros 
+    - Mago
+*/
+.pt2 {
+    padding-top: 2rem;
 }
