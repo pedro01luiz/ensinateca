@@ -14,7 +14,6 @@
         <div class="nav-content">
             <ul class="tabs tabs-transparent amber darken-4">
                 <li class="tab"><a class="active" href="#test1">Todos</a></li>
-                <li class="tab"><a href="#test2">Lidos</a></li>
                 <li class="tab"><a href="#test3">Favoritos</a></li>
             </ul>
         </div>

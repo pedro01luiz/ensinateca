@@ -3,7 +3,7 @@ body{
 }
 
 .nav-extended{
-    background-image: url("http://www.ensinateca.local/imagens/capa.jpg");
+    background-image: url("imagens/capa.jpg");
     background-size: cover;
     background-blend-mode: soft-light;
 }

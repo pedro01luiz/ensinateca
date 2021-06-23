@@ -61,53 +61,56 @@ $livros = $controller->index();
     </div>
   </div>
 
-    <?= Mensagem::mostrar(); ?>
+  <?= Mensagem::mostrar(); ?>
 
-    <script>
-      document.querySelectorAll(".btn-fav").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-          const id = btn.getAttribute("data-id")
-          fetch(`/favoritar/${id}`)
-            .then(response => response.json())
-            .then(response => {
-              if (response.success === "ok") {
-                if (btn.querySelector("i").innerHTML === "favorite") {
-                  btn.querySelector("i").innerHTML = "favorite_border"
-                } else {
-                  btn.querySelector("i").innerHTML = "favorite"
-                }
+  <script>
+    document.querySelectorAll(".btn-fav").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const id = btn.getAttribute("data-id")
+        fetch(`/favoritar/${id}`)
+          .then(response => response.json())
+          .then(response => {
+            if (response.success === "ok") {
+              if (btn.querySelector("i").innerHTML === "favorite") {
+                btn.querySelector("i").innerHTML = "favorite_border"
+              } else {
+                btn.querySelector("i").innerHTML = "favorite"
               }
+            }
+          })
+          .catch(error => {
+            M.toast({
+              html: 'Erro ao favoritar'
             })
-            .catch(error => {
-              M.toast({
-                html: 'Erro ao favoritar'
-              })
-            })
-        });
+          })
       });
+    });
 
-      document.querySelectorAll(".btn-delete").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-          const id = btn.getAttribute("data-id")
-          const requestConfig = { method: "DELETE", headers: new Headers()}
-          fetch(`/livros/${id}`, requestConfig)
-            .then(response => response.json())
-            .then(response => {
-              if (response.success === "ok") {
-                const card = btn.closest(".col")
-                card.classList.add("fadeOut")
-                setTimeout(() => card.remove(), 1000)
-              }
+    document.querySelectorAll(".btn-delete").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const id = btn.getAttribute("data-id")
+        const requestConfig = {
+          method: "DELETE",
+          headers: new Headers()
+        }
+        fetch(`/livros/${id}`, requestConfig)
+          .then(response => response.json())
+          .then(response => {
+            if (response.success === "ok") {
+              const card = btn.closest(".col")
+              card.classList.add("fadeOut")
+              setTimeout(() => card.remove(), 1000)
+            }
+          })
+          .catch(error => {
+            M.toast({
+              html: 'Erro ao favoritar'
             })
-            .catch(error => {
-              M.toast({
-                html: 'Erro ao favoritar'
-              })
-            })
+          })
 
-        });
       });
-    </script>
+    });
+  </script>
 
 </body>
 
