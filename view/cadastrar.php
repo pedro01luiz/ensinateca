@@ -37,11 +37,9 @@
 
                         <!-- input descrição -->
                         <div class="row">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <textarea name="descricao" id="descricao" class="materialize-textarea"></textarea>
-                                    <label for="descricao">Descrição</label>
-                                </div>
+                            <div class="input-field col s12">
+                                <textarea name="descricao" id="descricao" class="materialize-textarea"></textarea>
+                                <label for="descricao">Descrição</label>
                             </div>
                         </div>
 
