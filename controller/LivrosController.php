@@ -18,10 +18,17 @@ class LivrosController{
                 $livro = (object) $request;
 
                 $upload = $this->saveCapa($_FILES);
+                $uploadArquivo = $this->saveArquivo($_FILES);
 
                 if(gettype($upload)=="string"){
                         $livro->capa = $upload;
                 }
+
+                if(gettype($uploadArquivo)=="string"){
+                        $livro->arquivo = $uploadArquivo;
+                }
+
+
 
                 
                 if ($livrosRepository->salvar($livro))
@@ -39,6 +46,17 @@ class LivrosController{
                 $capaTmp = $file["capa_file"]["tmp_name"];
                 if (move_uploaded_file($capaTmp, $capaPath)){
                         return $capaPath;
+                }else{
+                        return false;
+                };
+        }
+
+        private function saveArquivo($file){
+                $arquivoDir = "arquivos/";
+                $arquivoPath = $arquivoDir . basename($file["arquivo_pdf"]["name"]);
+                $arquivoTmp = $file["arquivo_pdf"]["tmp_name"];
+                if (move_uploaded_file($arquivoTmp, $arquivoPath)){
+                        return $arquivoPath;
                 }else{
                         return false;
                 };

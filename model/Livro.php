@@ -17,4 +17,7 @@ class Livro{
     /** @var string $capa */
     public $capa;
 
+    /** @var string $arquivo */
+    public $arquivo;
+
 }

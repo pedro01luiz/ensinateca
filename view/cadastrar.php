@@ -64,6 +64,17 @@
                             </div>
                         </div>
 
+                        <!-- input arquivo -->
+                        <div class="file-field input-field">
+                            <div class="btn amber darken-2">
+                                <span>Livro</span>
+                                <input type="file" name="arquivo_pdf">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" name="arquivo">
+                            </div>
+                        </div>
+
                     </div>
                     <div class="card-action">
                         <a class="btn waves-effect waves-light grey" href="/">Cancelar</a>
