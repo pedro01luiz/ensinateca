@@ -1,5 +1,18 @@
 <?php
 
+require "./NotifyException.php";
+
+/**
+ * Se der algum erro ou se algo não funcionar direito,
+ * descomente essas três linhas abaixo, 
+ * elas fazem com que mostrem todos os erros e avisos silenciosos na página.
+ * - Mago
+ */
+
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+
 /**
  * Coloquei todo o código dentro de um try/catch
  * Porque se der erro no template ou no processamento das páginas dentro
@@ -46,5 +59,6 @@ try {
     require "view/404.php";
 
 } catch (\Throwable $th) {
-    echo $th;
+    $processUser = posix_getpwuid(posix_geteuid());
+    echo NotifyException::render($th);
 }

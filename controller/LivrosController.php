@@ -41,14 +41,17 @@ class LivrosController{
         }
 
         private function saveCapa($file){
-                $capaDir = "imagens/capas/";
-                $capaPath = $capaDir . basename($file["capa_file"]["name"]);
-                $capaTmp = $file["capa_file"]["tmp_name"];
-                if (move_uploaded_file($capaTmp, $capaPath)){
-                        return $capaPath;
-                }else{
-                        return false;
-                };
+
+                $destination_path = getcwd() . DIRECTORY_SEPARATOR . "imagens/capas";
+                $target_path = $destination_path . '/' . basename( $file["capa_file"]["name"]);
+                $moved = move_uploaded_file($file['capa_file']['tmp_name'], $target_path);
+
+                if ($moved) {
+                        return "/imagens/capas/" . $file["capa_file"]["name"];
+                } else {
+                        throw new Exception("Erro ao salvar o arquivo, verifique se você tem as permissões para a pasta.");
+                }
+                
         }
 
         private function saveArquivo($file){
