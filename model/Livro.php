@@ -20,4 +20,7 @@ class Livro{
     /** @var string $arquivo */
     public $arquivo;
 
+    /** @var string $video */
+    public $video;
+
 }

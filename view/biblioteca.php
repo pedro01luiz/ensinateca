@@ -17,12 +17,11 @@ $livros = $controller->index();
       </ul>
     </div>
     <div class="nav-header center">
-      <h1>ENSINATECA</h1>
+    <img src="../imagens/logo.png" width="250px" >
     </div>
     <div class="nav-content">
       <ul class="tabs tabs-transparent amber darken-4">
         <li class="tab"><a class="active" href="#test1">Todos</a></li>
-        <li class="tab"><a href="#test3">Favoritos</a></li>
       </ul>
     </div>
   </nav>
@@ -37,9 +36,6 @@ $livros = $controller->index();
           <div class="card hoverable card-serie limit">
             <div class="card-image">
               <img src="<?= $livro->capa ?>" class="activator bookImgLimitHeight" />
-              <button class="btn-fav btn-floating halfway-fab waves-effect waves-light red" data-id="<?= $livro->id ?>">
-                <i class="material-icons"><?= ($livro->favorito) ? "favorite" : "favorite_border" ?></i>
-              </button>
             </div>
             <div class="card-content">
               <p class="valign-wrapper">
@@ -48,6 +44,26 @@ $livros = $controller->index();
               <span class="card-title activator truncate">
                 <?= $livro->titulo ?>
               </span>
+
+              <!-- Modal Structure -->
+              <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ler Livro</a>
+
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h5>Boa leitura!</h5>
+                  <div>
+
+                    <iframe width="300" height="300" src="../arquivos/livros/exemplo.pdf"></iframe>
+
+                    <iframe src="../arquivos/videos/exemplo.mp4" frameborder="0" allowfullscreen></iframe>
+
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <a href="#" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+              </div>
+
             </div>
             <div class="card-reveal">
               <span class="card-title grey-text text-darken-4"><?= $livro->titulo ?><i class="material-icons right">close</i></span>
@@ -110,6 +126,9 @@ $livros = $controller->index();
 
       });
     });
+
+    const elemsModal = document.querySelectorAll(".modal");
+    const instancesModal = M.Modal.init(elemsModal);
   </script>
 
 </body>
