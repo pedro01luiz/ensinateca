@@ -9,12 +9,11 @@
             </ul>
         </div>
         <div class="nav-header center">
-            <h1>ENSINATECA</h1>
+            <img src="../imagens/logo.png" width="250px" >
         </div>
         <div class="nav-content">
             <ul class="tabs tabs-transparent amber darken-4">
                 <li class="tab"><a class="active" href="#test1">Todos</a></li>
-                <li class="tab"><a href="#test3">Favoritos</a></li>
             </ul>
         </div>
     </nav>
@@ -25,7 +24,7 @@
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title">Cadastrar Livro</span>
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                        <p>Cadastre seu livro logo abaixo:</p>
 
                         <!-- input titulo -->
                         <div class="row">
@@ -55,10 +54,32 @@
                         <div class="file-field input-field">
                             <div class="btn amber darken-2">
                                 <span>Capa</span>
-                                <input type="file" name="capa_file">
+                                <input type="file" name="capa_file" required>
                             </div>
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" name="capa">
+                                <input class="file-path validate" type="text" name="capa" required>
+                            </div>
+                        </div>
+
+                        <!-- input arquivo -->
+                        <div class="file-field input-field">
+                            <div class="btn amber darken-2">
+                                <span>Livro</span>
+                                <input type="file" name="arquivo_pdf" required>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" name="arquivo" required>
+                            </div>
+                        </div>
+
+                        <!-- input livro -->
+                        <div class="file-field input-field">
+                            <div class="btn amber darken-2">
+                                <span>Video</span>
+                                <input type="file" name="video_file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" name="video">
                             </div>
                         </div>
 

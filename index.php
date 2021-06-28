@@ -41,12 +41,6 @@ try {
         exit();
     }
 
-    if (substr($rota, 0, strlen("/favoritar")) === "/favoritar"){
-        $controller = new LivrosController();
-        $controller->favorite(basename($rota));
-        exit();
-    }
-
     if (substr($rota, 0, strlen("/livros")) === "/livros"){
         if($metodo == "GET") require "view/biblioteca.php";
         if($metodo == "DELETE"){

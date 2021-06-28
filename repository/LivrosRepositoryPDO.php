@@ -24,28 +24,19 @@ class LivrosRepositoryPDO{
     }
 
     public function salvar($livro): bool{
-        $sql = "INSERT INTO livros (titulo, capa, descricao, nota)
-        VALUES (:titulo, :capa, :descricao, :nota)";
+        $sql = "INSERT INTO livros (titulo, capa, descricao, nota, arquivo, video)
+        VALUES (:titulo, :capa, :descricao, :nota, :arquivo, :video)";
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(':titulo', $livro->titulo, PDO::PARAM_STR);
         $stmt->bindValue(':descricao', $livro->descricao, PDO::PARAM_STR);
         $stmt->bindValue(':nota', $livro->nota, PDO::PARAM_STR);
         $stmt->bindValue(':capa', $livro->capa, PDO::PARAM_STR);
+        $stmt->bindValue(':arquivo', $livro->arquivo, PDO::PARAM_STR);
+        $stmt->bindValue(':video', $livro->video, PDO::PARAM_STR);
 
 
         return $stmt->execute();
 
-    }
-
-    public function favoritar(int $id){
-        $sql = "UPDATE livros SET favorito = NOT favorito WHERE id=:id";
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        if($stmt->execute()){
-            return "ok";
-        }else{
-            return "erro";
-        }
     }
 
     public function delete(int $id){
